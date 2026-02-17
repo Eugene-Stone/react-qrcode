@@ -3,7 +3,7 @@ import { GENERATE_DATA } from '../../utils/constants';
 import './QrGeneratorHistory.scss';
 
 export default function QrGeneratorHistory() {
-	const generateHistory = JSON.parse(localStorage.getItem(GENERATE_DATA));
+	const generateHistory = JSON.parse(localStorage.getItem(GENERATE_DATA)) || [];
 
 	const generateHistoryList = generateHistory.map((item, index) => {
 		if (item.startsWith('http')) {
