@@ -17,15 +17,15 @@ import QrScannerHistory from './pages/QrScannerHistory/QrScannerHistory';
 
 const router = createBrowserRouter([
 	{
-		path: '/',
+		path: '/react-qrcode',
 		element: <Layout />,
 		children: [
 			{ path: '*', element: <NotFoundPage /> },
 			{ index: true, element: <Home /> },
-			{ path: '/generate', element: <QrGenerator /> },
-			{ path: '/generate-history', element: <QrGeneratorHistory /> },
-			{ path: '/scan', element: <QrScanner /> },
-			{ path: '/scan-history', element: <QrScannerHistory /> },
+			{ path: '/react-qrcode/generate', element: <QrGenerator /> },
+			{ path: '/react-qrcode/generate-history', element: <QrGeneratorHistory /> },
+			{ path: '/react-qrcode/scan', element: <QrScanner /> },
+			{ path: '/react-qrcode/scan-history', element: <QrScannerHistory /> },
 			// { path: '/counter/:id', element: <CounterItem /> },
 		],
 	},
