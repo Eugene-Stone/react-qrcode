@@ -30,6 +30,7 @@ export default function QrGenerator() {
 	return (
 		<div className={qrStyle.qr_generator}>
 			{/* <div className="qr_generator"> */}
+			<h1>Generate your QRcode</h1>
 			<input
 				type="text"
 				value={valueInput}

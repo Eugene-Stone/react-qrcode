@@ -6,6 +6,8 @@ import Header from './components/Header/Header';
 import NotFoundPage from './pages/NotFoundPage';
 import QrGenerator from './pages/QrGenerator/QrGenerator';
 import QrGeneratorHistory from './pages/QrGeneratorHistory/QrGeneratorHistory';
+import QrScanner from './pages/QrScanner/QrScanner';
+import QrScannerHistory from './pages/QrScannerHistory/QrScannerHistory';
 
 // const router = createBrowserRouter([
 // 	{ path: '*', element: <NotFoundPage /> },
@@ -22,6 +24,8 @@ const router = createBrowserRouter([
 			{ index: true, element: <Home /> },
 			{ path: '/generate', element: <QrGenerator /> },
 			{ path: '/generate-history', element: <QrGeneratorHistory /> },
+			{ path: '/scan', element: <QrScanner /> },
+			{ path: '/scan-history', element: <QrScannerHistory /> },
 			// { path: '/counter/:id', element: <CounterItem /> },
 		],
 	},
