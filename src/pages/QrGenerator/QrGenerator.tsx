@@ -10,7 +10,7 @@ export default function QrGenerator() {
 	const [valueInput, setValueInput] = useState('');
 	const [value, setValue] = useState('');
 
-	function handleValueInput(e) {
+	function handleValueInput(e: React.ChangeEvent<HTMLInputElement>) {
 		setValueInput(e.target.value);
 	}
 
@@ -18,7 +18,7 @@ export default function QrGenerator() {
 		setValue(valueInput);
 		setValueInput('');
 
-		let prevData = JSON.parse(localStorage.getItem(GENERATE_DATA)) || [];
+		let prevData: string[] = JSON.parse(localStorage.getItem(GENERATE_DATA) || '[]');
 
 		console.log(prevData);
 

@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from "react";
-
+import { useState, useEffect, useRef } from 'react';
 
 export function useValuesHistory() {
 	// const [valueHistoryGenerate, setValueHistoryGenerate] = useState([]);
@@ -8,10 +7,7 @@ export function useValuesHistory() {
 	const valueHistoryScan = useRef([]);
 
 	useEffect(() => {
-		localStorage.setItem(
-			"valueHistoryGenerate",
-			JSON.stringify(valueHistoryGenerate),
-		);
+		localStorage.setItem('valueHistoryGenerate', JSON.stringify(valueHistoryGenerate));
 	}, [valueHistoryGenerate]);
 
 	return {
@@ -21,5 +17,3 @@ export function useValuesHistory() {
 		// setValueHistoryScan
 	};
 }
-
-

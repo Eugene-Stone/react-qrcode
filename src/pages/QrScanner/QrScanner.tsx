@@ -8,17 +8,21 @@ import qrStyle from './QrScanner.module.scss';
 export default function QrScanner() {
 	const [resultScan, setResultScan] = useState('');
 
-	function handleScanning(result) {
-		setResultScan(result[0].rawValue);
-		console.log(`Result: ${resultScan}`);
-		console.log(result[0].rawValue);
+	type typeScanResult = {
+		rawValue: string;
+	};
 
-		let prevData = JSON.parse(localStorage.getItem(SCAN_DATA)) || [];
+	function handleScanning(result: typeScanResult[]) {
+		if (!result.length) return;
 
-		console.log(prevData);
+		const value = result[0].rawValue;
 
-		if (!prevData.includes(resultScan) && resultScan !== '') {
-			localStorage.setItem(SCAN_DATA, JSON.stringify([...prevData, resultScan]));
+		setResultScan(value);
+
+		let prevData: string[] = JSON.parse(localStorage.getItem(SCAN_DATA) || '[]');
+
+		if (!prevData.includes(value) && value !== '') {
+			localStorage.setItem(SCAN_DATA, JSON.stringify([...prevData, value]));
 		}
 	}
 
@@ -32,7 +36,6 @@ export default function QrScanner() {
 					onScan={(result) => handleScanning(result)}
 					// onError={(error) => console.log(error?.message)}
 					components={{
-						audio: true, // Play beep sound on scan
 						onOff: true, // Show camera on/off button
 						torch: false, // Show torch/flashlight button (if supported)
 						zoom: false, // Show zoom control (if supported)

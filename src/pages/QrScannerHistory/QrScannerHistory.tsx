@@ -3,7 +3,7 @@ import { SCAN_DATA } from '../../utils/constants';
 import './QrScannerHistory.scss';
 
 export default function QrScannerHistory() {
-	const scanHistory = JSON.parse(localStorage.getItem(SCAN_DATA)) || [];
+	const scanHistory: string[] = JSON.parse(localStorage.getItem(SCAN_DATA) || '[]');
 
 	const scanHistoryList = scanHistory.map((item, index) => {
 		if (item.startsWith('http')) {
