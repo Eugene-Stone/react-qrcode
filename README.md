@@ -1,16 +1,33 @@
-# React + Vite
+# react-qrcode
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Приложение для генерации и сканирования QR-кодов на React + Vite + TypeScript с поддержкой React Router и localStorage.
 
-Currently, two official plugins are available:
+## Что реализовано
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Генерация QR-кодов из текста или URL
+- Сканирование QR-кодов через камеру устройства
+- История генерации QR-кодов
+- История сканирования QR-кодов
+- Сохранение данных в localStorage
+- Навигация между страницами с React Router
+- Отдельный `base: "/react-qrcode"` для корректной работы на GitHub Pages
 
-## React Compiler
+## Стек
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- TypeScript 6
+- Vite
+- React Router DOM 7
+- `qrcode.react` — для генерации QR-кодов
+- `@yudiel/react-qr-scanner` — для сканирования QR-кодов
+- Sass
+- ESLint
 
-## Expanding the ESLint configuration
+## Особенности
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Данные сохраняются в localStorage браузера
+- Сканер использует заднюю камеру устройства
+- Ссылки в истории кликабельны
+- Используется CSS Modules для стилизации компонентов
+- `RouterProvider` и `Outlet` для вложенной маршрутизации
+
