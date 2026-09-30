@@ -2,6 +2,8 @@
 
 Приложение для генерации и сканирования QR-кодов на React + Vite + TypeScript с поддержкой React Router и localStorage.
 
+### Demo - https://eugene-stone.github.io/react-qrcode/
+
 ## Что реализовано
 
 - Генерация QR-кодов из текста или URL
