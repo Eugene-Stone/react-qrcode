@@ -1,9 +1,14 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import { SCAN_DATA } from '../../utils/constants';
 
-import './QrScannerHistory.scss';
-
 export default function QrScannerHistory() {
-	const scanHistory: string[] = JSON.parse(localStorage.getItem(SCAN_DATA) || '[]');
+	const [scanHistory, setScanHistory] = useState<string[]>([]);
+
+	useEffect(() => {
+		setScanHistory(JSON.parse(localStorage.getItem(SCAN_DATA) || '[]'));
+	}, []);
 
 	const scanHistoryList = scanHistory.map((item, index) => {
 		if (item.startsWith('http')) {

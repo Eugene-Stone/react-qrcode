@@ -1,9 +1,14 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import { GENERATE_DATA } from '../../utils/constants';
 
-import './QrGeneratorHistory.scss';
-
 export default function QrGeneratorHistory() {
-	const generateHistory: string[] = JSON.parse(localStorage.getItem(GENERATE_DATA) || '[]');
+	const [generateHistory, setGenerateHistory] = useState<string[]>([]);
+
+	useEffect(() => {
+		setGenerateHistory(JSON.parse(localStorage.getItem(GENERATE_DATA) || '[]'));
+	}, []);
 
 	const generateHistoryList = generateHistory.map((item: string, index: number) => {
 		if (item.startsWith('http')) {

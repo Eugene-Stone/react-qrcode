@@ -1,4 +1,6 @@
-import { useState } from 'react';
+'use client';
+
+import { type ChangeEvent, useState } from 'react';
 import { GENERATE_DATA } from '../../utils/constants';
 
 import { QRCodeSVG } from 'qrcode.react';
@@ -10,7 +12,7 @@ export default function QrGenerator() {
 	const [valueInput, setValueInput] = useState('');
 	const [value, setValue] = useState('');
 
-	function handleValueInput(e: React.ChangeEvent<HTMLInputElement>) {
+	function handleValueInput(e: ChangeEvent<HTMLInputElement>) {
 		setValueInput(e.target.value);
 	}
 

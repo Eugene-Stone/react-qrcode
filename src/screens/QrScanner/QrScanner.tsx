@@ -1,9 +1,16 @@
+'use client';
+
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
-import { Scanner } from '@yudiel/react-qr-scanner';
 import { SCAN_DATA } from '../../utils/constants';
 
 // import './QrScanner.scss';
 import qrStyle from './QrScanner.module.scss';
+
+const Scanner = dynamic(
+	() => import('@yudiel/react-qr-scanner').then((module) => module.Scanner),
+	{ ssr: false },
+);
 
 export default function QrScanner() {
 	const [resultScan, setResultScan] = useState('');

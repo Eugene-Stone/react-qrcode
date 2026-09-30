@@ -1,29 +1,44 @@
-import { NavLink } from 'react-router-dom';
-import './Header.scss';
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+const navLinks = [
+	{ href: '/generate', label: 'Generator' },
+	{ href: '/generate-history', label: 'Generate history' },
+	{ href: '/scan', label: 'Scanning' },
+	{ href: '/scan-history', label: 'Scanning history' },
+];
+
+function normalizePath(pathname: string) {
+	const pathWithoutBase = pathname.replace(/^\/react-qrcode/, '') || '/';
+
+	if (pathWithoutBase.length > 1) {
+		return pathWithoutBase.replace(/\/$/, '');
+	}
+
+	return pathWithoutBase;
+}
 
 export default function Header() {
+	const pathname = normalizePath(usePathname());
+
 	return (
 		<nav className="header">
 			<div className="logo">
-				<NavLink to={'/react-qrcode'}>
+				<Link className={pathname === '/' ? 'active' : undefined} href="/">
 					<span>Home</span>
-				</NavLink>
+				</Link>
 			</div>
 
 			<ul>
-				<li>
-					<NavLink to={'/react-qrcode/generate'}>Generator</NavLink>
-				</li>
-				<li>
-					<NavLink to={'/react-qrcode/generate-history'}>Generate history</NavLink>
-				</li>
-				<li>
-					<NavLink to={'/react-qrcode/scan'}>Scanning</NavLink>
-				</li>
-
-				<li>
-					<NavLink to={'/react-qrcode/scan-history'}>Scanning history</NavLink>
-				</li>
+				{navLinks.map((link) => (
+					<li key={link.href}>
+						<Link className={pathname === link.href ? 'active' : undefined} href={link.href}>
+							{link.label}
+						</Link>
+					</li>
+				))}
 			</ul>
 		</nav>
 	);
